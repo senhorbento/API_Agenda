@@ -6,12 +6,14 @@ const router = express.Router();
 
 router.post('/register', async(req, res) =>{
     try{
-        const contato = await Contato.create(req.body);
+        if(await Contato.findOne({"email": req.body.email, "telefone": req.body.telefone, "nome":req.body.nome}))
+            return res.status(400).send({erro: 'Usuario já existe'})
 
+        const contato = await Contato.create(req.body);
         return res.send({contato});
     }
     catch (err){
-        return res.status(400).send({error: 'Registration failed'});
+        return res.status(400).send({erro: 'Falha no registro'});
     }
 });
 
