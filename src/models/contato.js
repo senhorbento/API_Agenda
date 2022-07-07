@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../database');
 
 const ContatoSchema = new mongoose.Schema({
     nome:{type: String, require:true},

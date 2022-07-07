@@ -10,4 +10,6 @@ app.get('/', (req, res) => {
     res.send('OK');
 });
 
+require('./controllers/contatoController')(app);
+
 app.listen(3000);
