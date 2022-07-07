@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 
 app.get('/', (req, res) => {
-    res.send('OK');
+    res.send('Rodando...');
 });
 
 require('./controllers/contatoController')(app);
