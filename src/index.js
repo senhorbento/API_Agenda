@@ -13,5 +13,6 @@ app.get('/', (req, res) => {
 require('./controllers/creatController')(app);
 require('./controllers/readController')(app);
 require('./controllers/updateController')(app);
+require('./controllers/deleteController')(app);
 
 app.listen(3000);
