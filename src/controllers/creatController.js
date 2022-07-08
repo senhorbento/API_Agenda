@@ -1,8 +1,6 @@
-const express = require('express');
+const router = require('express').Router();
 
 const Contato = require('../models/contato');
-
-const router = express.Router();
 
 router.post('/creat', async(req, res) =>{
     try{
