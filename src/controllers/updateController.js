@@ -6,8 +6,8 @@ router.patch('/update/:id', async(req, res) =>{
     const id = req.params.id;
     try{
         const contatoAtualizado = await Contato.updateOne({_id: id}, req.body);
-        if(!contatoAtualizado)
-            return res.status(200).send({mensagem: 'Contato não atualizado!'});
+        if(contatoAtualizado.matchedCount == 0)
+            return res.status(200).send({mensagem: 'Contato não foi encontrado!'});
         return res.status(200).send({mensagem: 'Contato atualizado com sucesso!'});
     }
     catch (err){
