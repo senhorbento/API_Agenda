@@ -10,6 +10,6 @@ app.get('/', (req, res) => {
     res.send('Rodando...');
 });
 
-require('./controllers/contatoController')(app);
+require('./controllers/creatController')(app);
 
 app.listen(3000);

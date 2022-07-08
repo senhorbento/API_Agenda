@@ -4,8 +4,7 @@ const Contato = require('../models/contato');
 
 const router = express.Router();
 
-router.post('/register', async(req, res) =>{
-    
+router.post('/creat', async(req, res) =>{
     try{
         if(await Contato.findOne({"nome":req.body.nome, "telefone": req.body.telefone, "email": req.body.email}))
             return res.status(400).send({erro: 'Usuario já existe'});
@@ -20,4 +19,4 @@ router.post('/register', async(req, res) =>{
     }
 });
 
-module.exports = app => app.use('/creat', router);
+module.exports = app => app.use(router);
