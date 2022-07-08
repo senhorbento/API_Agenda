@@ -6,6 +6,7 @@ router.post('/creat', async(req, res) =>{
     try{
         if(await Contato.findOne({"nome":req.body.nome, "telefone": req.body.telefone, "email": req.body.email}))
             return res.status(400).send({erro: 'Usuario já existe'});
+            
         if(!req.body.nome ||!req.body.telefone)
             return res.status(422).send({erro: 'Nome e telefone são necessários'});
             
@@ -13,7 +14,7 @@ router.post('/creat', async(req, res) =>{
         return res.status(200).send({mensagem: 'Contato inserido com sucesso!'});
     }
     catch (err){
-        return res.status(400).send({erro: 'Falha no registro'});
+        return res.status(400).send({erro: err});
     }
 });
 
