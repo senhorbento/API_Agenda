@@ -11,5 +11,6 @@ app.get('/', (req, res) => {
 });
 
 require('./controllers/creatController')(app);
+require('./controllers/readController')(app);
 
 app.listen(3000);
