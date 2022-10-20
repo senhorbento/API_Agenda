@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 
 app.get('/', (req, res) => {
-    res.send('Rodando...');
+    res.send(require('./view/view'));
 });
 
 require('./controllers/creatController')(app);
@@ -15,4 +15,7 @@ require('./controllers/readController')(app);
 require('./controllers/updateController')(app);
 require('./controllers/deleteController')(app);
 
-app.listen(3000);
+app.listen(3000, ()=>{
+    console.log("Running in: localhost:3000")
+});
+
