@@ -6,10 +6,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 
-app.get('/', (req, res) => {
-    res.send(require('./view/view'));
-});
-
+require('./view/view.js')(app);
 require('./controllers/creatController')(app);
 require('./controllers/readController')(app);
 require('./controllers/updateController')(app);
