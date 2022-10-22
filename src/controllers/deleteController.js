@@ -7,7 +7,7 @@ router.delete('/delete/:id', async(req, res) =>{
     try{
         const contatoDelete = await Contato.deleteOne({_id: id});
         if(contatoDelete.matchedCount == 0)
-            return res.status(200).send({mensagem: 'Contato não foi encontrado!'});
+            return res.status(422).send({mensagem: 'Contato não foi encontrado!'});
         return res.status(200).send({mensagem: 'Contato excluido com sucesso!'});
     }
     catch (err){
