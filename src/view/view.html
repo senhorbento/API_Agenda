@@ -8,13 +8,41 @@
     <body>
         <div>
             <h1 align="center">API REST Agenda</h1> 
-            <dl align="center">
+            <dl>
                 <dt>Utilize:</dt>
                 <dd><b>Metódo POST:</b> /creat</dd>
                 <dd><b>Metódo GET:</b> /read</dd>
-                <dd><b>Metódo GET:</b> /read/"insira o id aqui"</dd>
-                <dd><b>Metódo PATCH:</b> /update/"insira o id aqui"</dd>
-                <dd><b>Metódo DELETE:</b> /delete/"insira o id aqui"</dd>
+                <dd><b>Metódo GET:</b> /read/id</dd>
+                <dd><b>Metódo PATCH:</b> /update/id</dd>
+                <dd><b>Metódo DELETE:</b> /delete/id</dd>
+            </dl>
+            <h3>Em todos os casos erros inesperados serão retornados com o código 400 seguido do erro.</h3>
+            <dl>
+                <dt>/creat:</dt>
+                <dd>Os dados a serem inseridos são {"nome":"string","telefone":"string","email":"string"}</dd>
+                <dd>Caso sejá inserido com sucesso será retornado código 200 {mensagem: 'Contato inserido com sucesso!'}</dd>
+                <dd>Caso o contato já exista será retornado código 400 {erro: 'Usuario já existe'}</dd>
+                <dd>Caso algum dos dados esteja faltando será retornado código 422 {erro: 'Nome e telefone são necessários'}</dd>
+            </dl>
+            <dl>
+                <dt>/read:</dt>
+                <dd>Os dados para cada contato a serem retornados serão {"_id": "string","nome":"string","telefone":"string","email":"string", "__v": 0}</dd>
+                <dd>Caso o não haja contato no banco será retornado código 422 {erro: 'Não foram encontrados registros'}</dd>
+            </dl>
+            <dl>
+                <dt>/read/id:</dt>
+                <dd>Os dados do contato serão {"_id": "string","nome":"string","telefone":"string","email":"string", "__v": 0}</dd>
+                <dd>Caso o contato não for encontrado no banco será retornado código 422 {erro: 'Contato não encontrado'}</dd>
+            </dl>
+            <dl>
+                <dt>/update/id</dt>
+                <dd>Caso o contato seja atualizado será retornado código 200 e {mensagem: 'Contato atualizado com sucesso!'}</dd>
+                <dd>Caso o contato <b>NÃO</b> seja encontrado será retornado código 422 e {mensagem: 'Contato não foi encontrado!'}</dd>
+            </dl>
+            <dl>
+                <dt>/delete/id</dt>
+                <dd>Caso o contato seja deletado será retornado código 200 e {mensagem: 'Contato excluido com sucesso!'}</dd>
+                <dd>Caso o contato <b>NÃO</b> seja encontrado será retornado código 422 e {mensagem: 'Contato não foi encontrado!'}</dd>
             </dl>
         </div>
     </body>
